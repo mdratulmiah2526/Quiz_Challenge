@@ -1,0 +1,151 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  <meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>CSE'23 Quiz Challenge | Developed by Ratul</title>  <link rel="stylesheet" href="style.css">  <link rel="preconnect" href="https://fonts.googleapis.com">  
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  <link rel="stylesheet"  
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">  </head>  <body>  <div class="background"></div>  <div class="container">  <header>  <h1>CSE'23 Quiz Challenge</h1>  <p class="developer">  
+week 2
+</p>  </header>  <!-- ================= LOGIN ================= -->  <section id="loginPage" class="card">  <h2>Student Information</h2>  <div class="inputGroup">  <label>Nickname *</label>
+
+<input
+type="text"
+id="nickname"
+placeholder="Enter your nickname"
+autocomplete="off"
+required>
+
+</div>  <div class="inputGroup">  <label>Student ID *</label>
+
+<div class="idInputWrap">
+<span class="idPrefix">CE260</span>
+<input
+type="text"
+id="studentId"
+placeholder="01-63"
+maxlength="2"
+inputmode="numeric"
+autocomplete="off"
+required>
+</div>
+
+</div>  <div class="rules">  <h3>Instructions</h3>  <ul>  <li>✔ Name and ID are mandatory.</li>  <li>✔ Every correct answer = <b>+1</b></li>  <li>✔ Every wrong answer = <b>-0.25</b></li>   <li>✔ Selected answer cannot be changed.</li>  <li>✔ Quiz will auto submit after time ends.</li>  </ul>  </div>  <button id="startBtn">  <i class="fa-solid fa-play"></i>
+
+Start Quiz
+
+</button>  </section>  <!-- ================= QUIZ ================= -->  <section id="quizPage" class="hidden">  <div class="topBar">  <div class="timerBox">  <i class="fa-solid fa-clock"></i>
+
+<span id="timer">  
+00:00  
+</span>  </div>  <div class="progressText">  Question
+
+<span id="currentQuestion">  
+1  
+</span>  /
+
+<span id="totalQuestion">  
+0  
+</span>  </div>  </div>  <div class="progressContainer">  <div  
+id="progressBar"  
+class="progressBar">  </div>  </div>  <div class="questionCard" id="questionCard">  <div id="bonusBadge" class="bonusBadge hidden"><i class="fa-solid fa-star"></i> Bonus Question &bull; No Marks &bull; Required</div>  <h2 id="questionText">  Question Here
+
+</h2>  <div id="options">  <!-- JS --></div>  </div>  <div class="navigation">  <button  
+id="prevBtn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Previous
+
+</button>  <button  
+id="nextBtn">
+
+Next
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>  </div>  <div class="submitArea">  <button id="submitBtn">  Submit Quiz
+
+</button>  </div>  </section>  <!-- ================= RESULT ================= -->  <section id="resultPage" class="hidden">  <div class="resultCard">  <h2>  Quiz Result
+
+</h2>  <div class="resultGrid">  <div class="box">  <h3>Total Questions</h3>  <p id="rTotal">0</p>  </div>  <div class="box">  <h3>Attempted</h3>  <p id="rAttempt">0</p>  </div>  <div class="box">  <h3>Correct</h3>  <p id="rCorrect">0</p>  </div>  <div class="box">  <h3>Wrong</h3>  <p id="rWrong">0</p>  </div>  <div class="box">  <h3>Skipped</h3>  <p id="rSkip">0</p>  </div>  <div class="box">  <h3>Score</h3>  <p id="rScore">0</p>  </div>  <div class="box">  <h3>Accuracy</h3>  <p id="rAccuracy">0%</p>  </div>  <div class="box">  <h3>Time Taken</h3>  <p id="rTime">0</p>  </div>  <div class="box">  <h3>Hardness Level</h3>  <p id="rDifficulty">-</p>  </div>  </div>  <div class="resultButtons">  <button id="showAnswerBtn">  Show Answers
+
+</button>  <button id="restartBtn">  Restart Quiz
+
+</button>  </div>  </div>  </section>  <!-- ================= ANSWERS ================= -->  <section id="answerPage" class="hidden">  <div class="answerCard">  
+
+    <h2>Correct Answers</h2>  
+
+    <div id="answerContainer">  
+        <!-- JS will add answers here -->  
+    </div>  
+
+    <div class="resultButtons">  
+
+        <button id="backResultBtn">  
+            <i class="fa-solid fa-arrow-left"></i>  
+            Back to Result  
+        </button>  
+
+        <button id="restartFromAnswerBtn">  
+            <i class="fa-solid fa-rotate-right"></i>  
+            Restart Quiz  
+        </button>  
+
+    </div>  
+
+</div>
+
+</section>  
+<!-- ================= FORMSPREE ================= -->  <form  
+id="resultForm"  
+action="https://formspree.io/f/xqpzawzy"  
+method="POST"  
+style="display:none;">  <input  
+type="text"  
+name="Nickname"  
+id="mailName">
+
+<input  
+type="text"  
+name="Student ID"  
+id="mailID">
+
+<input  
+type="text"  
+name="Score"  
+id="mailScore">
+
+<input  
+type="text"  
+name="Correct"  
+id="mailCorrect">
+
+<input  
+type="text"  
+name="Wrong"  
+id="mailWrong">
+
+<input  
+type="text"  
+name="Accuracy"  
+id="mailAccuracy">
+
+<input
+type="text"
+name="Skipped"
+id="mailSkipped">
+
+<input
+type="text"
+name="Time"
+id="mailTime">
+
+<input
+type="text"
+name="Hardness Level"
+id="mailDifficulty">
+
+</form> <footer id="footer"> <p>  © Ratul | All Rights Reserved 2026
+
+
+</p>  </footer>  </div>  <script src="script.js"></script>  </body>  
+</html>
